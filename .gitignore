@@ -1,5 +1,5 @@
 cache
-figure
+figure/*.pdf
 .Rapp.history
 *.aux
 *.log
