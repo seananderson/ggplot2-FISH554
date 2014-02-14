@@ -123,14 +123,14 @@ Read the notes section on small multiples.
 
 Try a scatterplot of beak height against wing length with a different panel for each taxon. Use `facet_wrap`:
 
-```{r}
+```{r, fig.height=9, fig.width=9}
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_wrap(~taxon)
 ```
 
 In some cases, it's useful to let the x or y axes have different scales for each panel. Try giving each panel a different axis here using `scales = "free"` in your call to `facet_wrap()`:
 
-```{r}
+```{r, fig.heigh=9, fig.width=9}
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) +
   facet_wrap(~taxon, scales = "free")
@@ -138,14 +138,14 @@ ggplot(morph, aes(wingl, beakh)) +
 
 Now try using `facet_grid` to explore the same scatterplot for each combination of sex and taxa. (Remove the `scales = "free"` code for simplicity.)
 
-```{r, fig.width=13, fig.height=3}
+```{r, fig.width=16, fig.height=3}
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_grid(sex~taxon)
 ```
 
 As another example, let's look at the distribution of wing length by sex with different panels for each taxa. Use a boxplot or violin plot to show the distributions.
 
-```{r}
+```{r, fig.width=9, fig.height=9}
 ggplot(morph, aes(sex, wingl)) + geom_violin() +
   facet_wrap(~taxon)
 ```
