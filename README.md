@@ -32,4 +32,6 @@ The basic idea is to add R code within the code chunks:
 
 You can then run those code chunks, jump to chunks via the pop up menu in the bottom left of the code window, and "knit" the whole document via the "Knit HTML" button at the top of your code window.
 
+The notes document was [also written with knitr](https://github.com/seananderson/ggplot2-FISH554/blob/master/ggplot2-notes.Rnw), but the LaTeX version.
+
 

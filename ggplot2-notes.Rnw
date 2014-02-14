@@ -63,8 +63,8 @@ plots for publication (Figure~\ref{fig:gg-time}).
 
 \begin{figure}[htb]
   \centering
-    \includegraphics[height=2.15in]{gg-dimensions.pdf}
-    \includegraphics[height=2.15in]{gg-vs-base-pub.pdf}
+    \includegraphics[height=2.15in]{figure/gg-dimensions.pdf}
+    \includegraphics[height=2.15in]{figure/gg-vs-base-pub.pdf}
   \caption{Creation time vs.\ data dimensions and customization level for base
   graphics (blue) and \ggtwo\ (red). (Left panel) It's remarkably easy to plot
   high-dimensional data in \ggtwo\ with, for example, colours, sizes, shapes,
