@@ -64,7 +64,7 @@ First, let's experiment with some geoms using the `morph` dataset. I'll start by
 ggplot(morph, aes(wingl, beakh)) + geom_point(alpha = 0.4)
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk geom1](figure/geom1.png) 
 
 
 Because there's lots of overplotting, I've set the alpha (opacity) value to 40%. Alternatively, we could have added some jittering. We'll do that below.
@@ -76,31 +76,31 @@ Experiment with ggplot2 geoms. Try applying at least 3 different geoms to the `m
 ggplot(morph, aes(wingl)) + geom_histogram(binwidth=1)
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-71.png) 
+![plot of chunk geom-examples](figure/geom-examples1.png) 
 
 ```S
 ggplot(morph, aes(wingl)) + geom_density()
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-72.png) 
+![plot of chunk geom-examples](figure/geom-examples2.png) 
 
 ```S
 ggplot(morph, aes(sex, wingl)) + geom_violin()
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-73.png) 
+![plot of chunk geom-examples](figure/geom-examples3.png) 
 
 ```S
 ggplot(morph, aes(taxon, wingl)) + geom_violin() + coord_flip() # coord_flip() rotates 90 degrees
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-74.png) 
+![plot of chunk geom-examples](figure/geom-examples4.png) 
 
 ```S
 ggplot(morph, aes(taxon, wingl)) + geom_boxplot() + coord_flip()
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-75.png) 
+![plot of chunk geom-examples](figure/geom-examples5.png) 
 
 
 ## Part 2: aesthetics
@@ -116,7 +116,7 @@ ggplot(morph, aes(wingl, beakh)) +
     position = position_jitter(width = 0.3, height = 0))
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+![plot of chunk aes-example](figure/aes-example.png) 
 
 
 Explore the `morph` dataset yourself by applying some aesthetics. You can see all the available aesthetics for a give geom by looking at the documentation. Either see the website or, for example, `?geom_point`
@@ -136,7 +136,7 @@ ggplot(morph, aes(wingl, beakh)) +
   geom_point(aes(size = ubeakl), alpha = 0.4)
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk aes1](figure/aes1.png) 
 
 
 
@@ -146,7 +146,7 @@ ggplot(morph, aes(wingl, beakh)) +
     position = position_jitter(width = 0.3, height = 0))
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+![plot of chunk aes2](figure/aes2.png) 
 
 
 
@@ -156,7 +156,7 @@ ggplot(morph, aes(wingl, beakh)) +
     position = position_jitter(width = 0.3, height = 0))
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk aes3](figure/aes3.png) 
 
 ```S
 ggplot(morph, aes(wingl, beakh)) +
@@ -164,7 +164,7 @@ ggplot(morph, aes(wingl, beakh)) +
     alpha = 0.4)
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk aes4](figure/aes4.png) 
 
 
 ## Part 3: facets (small multiples)
@@ -179,7 +179,7 @@ ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_wrap(~taxon)
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png) 
+![plot of chunk facet1](figure/facet1.png) 
 
 
 In some cases, it's useful to let the x or y axes have different scales for each panel. Try giving each panel a different axis here using `scales = "free"` in your call to `facet_wrap()`:
@@ -191,7 +191,7 @@ ggplot(morph, aes(wingl, beakh)) +
   facet_wrap(~taxon, scales = "free")
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png) 
+![plot of chunk facet2](figure/facet2.png) 
 
 
 Now try using `facet_grid` to explore the same scatterplot for each combination of sex and taxa. (Remove the `scales = "free"` code for simplicity.)
@@ -202,7 +202,7 @@ ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_grid(sex~taxon)
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
+![plot of chunk facet3](figure/facet3.png) 
 
 
 As another example, let's look at the distribution of wing length by sex with different panels for each taxa. Use a boxplot or violin plot to show the distributions.
@@ -213,7 +213,7 @@ ggplot(morph, aes(sex, wingl)) + geom_violin() +
   facet_wrap(~taxon)
 ```
 
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16.png) 
+![plot of chunk facet4](figure/facet4.png) 
 
 
 ## Part 4: customizing ggplot2
@@ -230,7 +230,7 @@ p <- ggplot(morph, aes(sex, wingl)) + geom_violin() + theme_bw()
 print(p)
 ```
 
-![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
+![plot of chunk customizing1](figure/customizing1.png) 
 
 
 Let's go one step further and remove all grid lines. See the included notes and the help for `?theme`. Hint: setting an argument to `element_blank()` will remove it. Add these elements to the object `p` and print `p` again. Hint: see the note "Exploiting the object-oriented nature of ggplot2" in the "Random tips" section of the notes.
@@ -242,7 +242,7 @@ p <- p + theme(panel.grid.major = element_blank(),
 print(p)
 ```
 
-![plot of chunk unnamed-chunk-18](figure/unnamed-chunk-18.png) 
+![plot of chunk customizing2](figure/customizing2.png) 
 
 
 And now let's set the x and y axis labels ourselves. Name them something more appropriate.
@@ -253,7 +253,7 @@ p <- p + xlab("Sex") + ylab("Wing length")
 print(p)
 ```
 
-![plot of chunk unnamed-chunk-19](figure/unnamed-chunk-19.png) 
+![plot of chunk customizing3](figure/customizing3.png) 
 
 
 Use the function `ggsave()` to save your plot to a PDF file.
@@ -293,7 +293,7 @@ ggplot(morph_quant, aes(x = taxon, y = m, ymin = l, ymax = u)) +
   ylab("Wing length") + xlab("")
 ```
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22.png) 
+![plot of chunk pointrange-example](figure/pointrange-example.png) 
 
 
 ### Adding model fits to the data
@@ -307,7 +307,7 @@ ggplot(morph, aes(wingl, beakh)) +
   stat_smooth(method = "loess")
 ```
 
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23.png) 
+![plot of chunk loess-example](figure/loess-example.png) 
 
 
 You can add any model fit by specifying the function and the formula (see the examples in `?stat_smooth`). Alternatively, you can fit your own model, predict from it, and add the data with `geom_ribbon()`.
