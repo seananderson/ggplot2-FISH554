@@ -10,7 +10,7 @@ Course notes and exercises on ggplot2 for the FISH554 class at the University of
 
 3. Install the knitr R package: `install.packages("knitr")`
 
-4. Open the file `ggplot2-exercises.Rmd`. This is an R Markdown document. See the notes below if you're unfamiliar with it.
+4. Open the file `ggplot2-exercises.Rmd`. This is an R Markdown document. See the notes below if you're unfamiliar with R Markdown.
 
 5. Work your way through that file while you read the PDF notes document. When you want to check your work, or if you really get stuck, jump over to the [this version](https://github.com/seananderson/ggplot2-FISH554/blob/master/ggplot2-exercises-answers.md) that has the answers.
 
