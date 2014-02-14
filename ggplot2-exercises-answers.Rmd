@@ -1,10 +1,10 @@
 # An introduction to the ggplot2 package
 
-Exercises written by Sean C. Anderson <sean "at" seananderson.ca>.
+Exercises written by Sean C. Anderson: sean "at" seananderson.ca.
 
 For a UW FISH 544 self-study workshop in February 2014.
 
-This is an R Markdown document. Install the knitr package to work with it.
+This is an R Markdown document --- it mixes R code with text. Install the knitr package to work with it.
 See <http://www.rstudio.com/ide/docs/authoring/using_markdown> for more details.
 
 Once knitr is installed, you can "knit" the document by clicking the "knit" button in RStudio, or running `knitr::knit2html("ggplot2-exercises.Rmd")` in an R console.
