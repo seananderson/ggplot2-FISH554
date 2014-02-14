@@ -96,6 +96,7 @@ Some suggestions:
 
 - try the same scatterplot but show upper beak length (`ubeakl`) with size
 - try the same scatterplot but show the taxon with colour
+- try the same scatterplot but show the upper beak length with colour (note how ggplot treats `ubeakl` differently than `taxon` when it picks a colour scale)
 - try the same scatterplot but show the sex with a different shape
 - combine all these: colour for taxon, shape for sex, and size for upper beak length
 

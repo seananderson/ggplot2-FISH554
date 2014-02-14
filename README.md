@@ -4,9 +4,9 @@ Course notes and exercises on ggplot2 for the FISH554 class at the University of
 
 ## Instructions
 
-1. Download this whole repository as [a ZIP file](<https://github.com/seananderson/ggplot2-FISH554/archive/master.zip>).
+1. Download this whole repository as [a ZIP file](<https://github.com/seananderson/ggplot2-FISH554/archive/master.zip>) and extract the ZIP file.
 
-2. Find the notes document `ggplot2-notes.pdf`. You can also download it directly from [this link](https://github.com/seananderson/ggplot2-FISH554/raw/master/ggplot2-notes.pdf).
+2. Find the notes document `ggplot2-notes.pdf` in the folder you just downloaded. You can also download it directly from [this link](https://github.com/seananderson/ggplot2-FISH554/raw/master/ggplot2-notes.pdf).
 
 3. Install the knitr R package: `install.packages("knitr")`
 
