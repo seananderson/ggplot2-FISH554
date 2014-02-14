@@ -253,10 +253,10 @@ theme_example <- function (base_size = 12, base_family = "") {
           axis.title.x = element_text(colour = "grey50"),
           axis.title.y = element_text(colour = "grey50", angle = 90),
           panel.background = element_rect(fill = "white"),
-          panel.grid.minor.y = theme_blank(),
-          panel.grid.minor.x = theme_blank(),
-          panel.grid.major = theme_blank(),
-          plot.background = theme_blank()
+          panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          panel.grid.major = element_blank(),
+          plot.background = element_blank()
   )
 }
 ggplot(mtcars, aes(wt, mpg)) + geom_point() + theme_example()
