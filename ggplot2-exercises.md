@@ -81,6 +81,13 @@ Start by reading the section on aesthetics in the included notes.
 Let's play with mapping some of our data to aesthetics. I'll start with one example. I'm going to map the male/female value to a colour in our scatterplot of wing length and beak height. This time I'll use jittering instead of transparency to deal with overplotting:
 
 
+```S
+ggplot(morph, aes(wingl, beakh)) +
+  geom_point(aes(colour = sex),
+    position = position_jitter(width = 0.3, height = 0))
+```
+
+![plot of chunk aes-example](figure2/aes-example.png) 
 
 
 Explore the `morph` dataset yourself by applying some aesthetics. You can see all the available aesthetics for a give geom by looking at the documentation. Either see the website or, for example, `?geom_point`
