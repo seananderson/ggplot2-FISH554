@@ -18,7 +18,7 @@ Once knitr is installed, you can "knit" the document by clicking the "knit" butt
 First, load ggplot2:
 
 
-```r
+```S
 library(ggplot2)
 ```
 
@@ -30,7 +30,7 @@ We're going to work with morphological data from Galapagos finches, which is ava
 I've taken the data and cleaned it up a bit for this exercise. I've removed some columns and made the column names lower case. I've also removed all but one island. You can do that with this code:
 
 
-```r
+```S
 morph <- read.csv("Morph_for_Sato.csv")
 names(morph) <- tolower(names(morph)) # make columns names lowercase
 morph <- subset(morph, islandid == "Flor_Chrl") # take only one island
@@ -46,7 +46,7 @@ row.names(morph) <- NULL # tidy up the row names
 Take a look at the data. There are columns for taxon, sex, wing length, beak height, and upper beak length:
 
 
-```r
+```S
 head(morph)
 str(morph)
 ```
@@ -60,7 +60,7 @@ Then, open the ggplot2 web documentation <http://docs.ggplot2.org/> and keep it 
 First, let's experiment with some geoms using the `morph` dataset. I'll start by setting up a basic scatterplot of beak height vs. wing length:
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) + geom_point(alpha = 0.4)
 ```
 
@@ -72,31 +72,31 @@ Because there's lots of overplotting, I've set the alpha (opacity) value to 40%.
 Experiment with ggplot2 geoms. Try applying at least 3 different geoms to the `morph` dataset. For example, try showing the distribution of wing length with `geom_histogram()` and `geom_density()`. You could also try showing the distribution of wing length for male and female birds by using `geom_violin()`. Remember to consult <http://docs.ggplot2.org/>.
 
 
-```r
+```S
 ggplot(morph, aes(wingl)) + geom_histogram(binwidth=1)
 ```
 
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-71.png) 
 
-```r
+```S
 ggplot(morph, aes(wingl)) + geom_density()
 ```
 
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-72.png) 
 
-```r
+```S
 ggplot(morph, aes(sex, wingl)) + geom_violin()
 ```
 
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-73.png) 
 
-```r
+```S
 ggplot(morph, aes(taxon, wingl)) + geom_violin() + coord_flip() # coord_flip() rotates 90 degrees
 ```
 
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-74.png) 
 
-```r
+```S
 ggplot(morph, aes(taxon, wingl)) + geom_boxplot() + coord_flip()
 ```
 
@@ -110,7 +110,7 @@ Start by reading the section on aesthetics in the included notes.
 Let's play with mapping some of our data to aesthetics. I'll start with one example. I'm going to map the male/female value to a colour in our scatterplot of wing length and beak height. This time I'll use jittering instead of transparency to deal with overplotting:
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(aes(colour = sex),
     position = position_jitter(width = 0.3, height = 0))
@@ -131,7 +131,7 @@ Some suggestions:
 Yes, this last version is a bit silly, but it illustrates how quickly you can explore multiple dimensions with ggplot2.
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(aes(size = ubeakl), alpha = 0.4)
 ```
@@ -140,7 +140,7 @@ ggplot(morph, aes(wingl, beakh)) +
 
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(aes(colour = taxon),
     position = position_jitter(width = 0.3, height = 0))
@@ -150,7 +150,7 @@ ggplot(morph, aes(wingl, beakh)) +
 
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(aes(shape = sex),
     position = position_jitter(width = 0.3, height = 0))
@@ -158,7 +158,7 @@ ggplot(morph, aes(wingl, beakh)) +
 
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(aes(shape = sex, size = ubeakl, colour = taxon),
     alpha = 0.4)
@@ -174,7 +174,7 @@ Read the notes section on small multiples.
 Try a scatterplot of beak height against wing length with a different panel for each taxon. Use `facet_wrap`:
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_wrap(~taxon)
 ```
@@ -185,7 +185,7 @@ ggplot(morph, aes(wingl, beakh)) +
 In some cases, it's useful to let the x or y axes have different scales for each panel. Try giving each panel a different axis here using `scales = "free"` in your call to `facet_wrap()`:
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) +
   facet_wrap(~taxon, scales = "free")
@@ -197,7 +197,7 @@ ggplot(morph, aes(wingl, beakh)) +
 Now try using `facet_grid` to explore the same scatterplot for each combination of sex and taxa. (Remove the `scales = "free"` code for simplicity.)
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_grid(sex~taxon)
 ```
@@ -208,7 +208,7 @@ ggplot(morph, aes(wingl, beakh)) +
 As another example, let's look at the distribution of wing length by sex with different panels for each taxa. Use a boxplot or violin plot to show the distributions.
 
 
-```r
+```S
 ggplot(morph, aes(sex, wingl)) + geom_violin() +
   facet_wrap(~taxon)
 ```
@@ -225,7 +225,7 @@ Read the notes from the section on themes until the end.
 Let's start by applying the black and white theme, `theme_bw()`. Try adding that on to the end of a plot showing the distribution of wing length by sex using `geom_violin()`. Save your plot to an object named `p` and `print()` it to show it. We'll re-use this plot in the next step.
 
 
-```r
+```S
 p <- ggplot(morph, aes(sex, wingl)) + geom_violin() + theme_bw()
 print(p)
 ```
@@ -236,7 +236,7 @@ print(p)
 Let's go one step further and remove all grid lines. See the included notes and the help for `?theme`. Hint: setting an argument to `element_blank()` will remove it. Add these elements to the object `p` and print `p` again. Hint: see the note "Exploiting the object-oriented nature of ggplot2" in the "Random tips" section of the notes.
 
 
-```r
+```S
 p <- p + theme(panel.grid.major = element_blank(),
   panel.grid.minor = element_blank())
 print(p)
@@ -248,7 +248,7 @@ print(p)
 And now let's set the x and y axis labels ourselves. Name them something more appropriate.
 
 
-```r
+```S
 p <- p + xlab("Sex") + ylab("Wing length")
 print(p)
 ```
@@ -259,7 +259,7 @@ print(p)
 Use the function `ggsave()` to save your plot to a PDF file.
 
 
-```r
+```S
 ggsave(p, file = "wingl-violin.pdf", width = 6, height = 6)
 ```
 
@@ -271,7 +271,7 @@ ggsave(p, file = "wingl-violin.pdf", width = 6, height = 6)
 ggplot2 can be useful for quickly making dot and line plots. For example, this is useful for coefficient plots. To illustrate how to make this style of plot, let's make a shows a dot for the median and line segment for the quantiles. First, we'll calculate these values. Run the following code:
 
 
-```r
+```S
 # install.packages("dplyr")
 library(dplyr)
 morph_quant <- as.data.frame(summarise(group_by(morph, taxon),
@@ -287,7 +287,7 @@ morph_quant <- transform(morph_quant,
 Now make the plot. The final plot should have the taxa listed down the y-axis and the wing length value on the x axis. Use the geom `geom_pointrange()`. Because this geom only works for vertical line segments, you'll need to rotate the whole plot by adding `+ coord_flip()`. So, `ymax` and `ymin` refer to the maximum and minimum line segment values and `x` to the taxa, even though they will appear rotated in the end.
 
 
-```r
+```S
 ggplot(morph_quant, aes(x = taxon, y = m, ymin = l, ymax = u)) +
   geom_pointrange() + coord_flip() +
   ylab("Wing length") + xlab("")
@@ -301,7 +301,7 @@ ggplot(morph_quant, aes(x = taxon, y = m, ymin = l, ymax = u)) +
 ggplot2 can add model fits to the data to help visualize patterns. For example, it can quickly add linear regression lines, GLMs, GAMs, and loess curves. Let's add loess curves to scatter plots of beak height and wing length with a panel for male and female. See `?stat_smooth`
 
 
-```r
+```S
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_wrap(~sex) +
   stat_smooth(method = "loess")
