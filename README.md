@@ -1,8 +1,8 @@
-# An introduction to ggplot2
+## An introduction to ggplot2
 
 Course notes and exercises on ggplot2 for the FISH554 class at the University of Washington.
 
-## Instructions
+### Instructions
 
 1. Download this whole repository as [a ZIP file](<https://github.com/seananderson/ggplot2-FISH554/archive/master.zip>) and extract the ZIP file.
 
@@ -14,7 +14,7 @@ Course notes and exercises on ggplot2 for the FISH554 class at the University of
 
 5. Work your way through that file while you read the PDF notes document. When you want to check your work, or if you really get stuck, jump over to the [this version](https://github.com/seananderson/ggplot2-FISH554/blob/master/ggplot2-exercises-answers.md) that has the answers.
 
-## Working with R Markdown
+### Working with R Markdown
 
 You can read more about R Markdown at:
 
