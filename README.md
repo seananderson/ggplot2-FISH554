@@ -1,6 +1,8 @@
 ## An introduction to ggplot2
 
-Course notes and exercises on ggplot2 for the FISH554 class at the University of Washington.
+This repository has notes and exercises to help you teach yourself how to rapidly explore data with the ggplot2 R package.
+
+It was written as a self-study component for the FISH554 class at the University of Washington.
 
 ### Instructions
 
@@ -34,4 +36,8 @@ You can then run those code chunks, jump to chunks via the pop up menu in the bo
 
 The notes document was [also written with knitr](https://github.com/seananderson/ggplot2-FISH554/blob/master/ggplot2-notes.Rnw), but the LaTeX version.
 
+### Contact
 
+If you have any questions on the notes or exercises, or want to provide feedback, feel free to email me at sean "at" seananderson.ca.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
