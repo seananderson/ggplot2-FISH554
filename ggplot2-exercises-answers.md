@@ -279,16 +279,16 @@ ggsave(p, file = "wingl-violin.pdf", width = 6, height = 6)
 
 ### Dot and line plots
 
-ggplot2 can be useful for quickly making dot and line plots. For example, this is useful for coefficient plots. To illustrate how to make this style of plot, let's make a shows a dot for the median and line segment for the quantiles. First, we'll calculate these values. Run the following code:
+ggplot2 can be useful for quickly making dot and line plots. For example, this is useful for coefficient plots. To illustrate how to make this style of plot, let's make a plot that shows a dot for the median and line segment for the quantiles. First, we'll calculate these values. Run the following code:
 
 
 ```S
 # install.packages("dplyr")
 library(dplyr)
-morph_quant <- as.data.frame(summarise(group_by(morph, taxon),
+morph_quant <- summarise(group_by(morph, taxon),
   l = quantile(wingl, 0.25)[[1]],
   m = median(wingl),
-  u = quantile(wingl, 0.75)[[1]]))
+  u = quantile(wingl, 0.75)[[1]])
 # order taxa factor levels by the median for plotting:
 morph_quant <- transform(morph_quant,
   taxon = reorder(taxon, m, function(x) x)) # see ?reorder
@@ -309,7 +309,7 @@ ggplot(morph_quant, aes(x = taxon, y = m, ymin = l, ymax = u)) +
 
 ### Adding model fits to the data
 
-ggplot2 can add model fits to the data to help visualize patterns. For example, it can quickly add linear regression lines, GLMs, GAMs, and loess curves. Let's add loess curves to scatter plots of beak height and wing length with a panel for male and female. See `?stat_smooth`
+ggplot2 can add model fits to the data to help visualize patterns. For example, it can quickly add linear regression lines, GLMs, GAMs, and loess curves. Let's add loess curves to scatter plots of beak height and wing length with a panel (facets) for male and female. See `?stat_smooth`.
 
 
 ```S
