@@ -12,9 +12,9 @@ It was written as a self-study component for the FISH554 class at the University
 
 3. Install the knitr R package: `install.packages("knitr")`
 
-4. Open the file `ggplot2-exercises.Rmd` in RStudio. This is an R Markdown document. See the notes below if you're unfamiliar with R Markdown.
+4. Open the file `ggplot2-exercises.Rmd` in RStudio. This is an R Markdown document. See the notes below if you're unfamiliar with R Markdown. The data file `Morph_for_Sato.csv` is in the same folder.
 
-5. Work your way through that file while you read the PDF notes document. When you want to check your work, or if you really get stuck, jump over to the [this version](https://github.com/seananderson/ggplot2-FISH554/blob/master/ggplot2-exercises-answers.md) that has the answers.
+5. Work your way through that file while you read the PDF notes document. When you want to check your work, or if you get really stuck, jump over to [this version](https://github.com/seananderson/ggplot2-FISH554/blob/master/ggplot2-exercises-answers.md) that has the answers.
 
 ### Working with R Markdown
 

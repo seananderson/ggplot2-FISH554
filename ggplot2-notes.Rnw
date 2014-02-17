@@ -1,4 +1,4 @@
-% Sean Anderson, 2012-14, sean@seananderson.ca
+% Sean Anderson, 2012-14, sean "at" seananderson.ca
 \documentclass[11pt]{article}
 \usepackage{geometry}
 \geometry{letterpaper}
