@@ -45,7 +45,7 @@ knit_theme$set(thm)
 
 \maketitle
 
-\section{The \ggtwo\ philosophy: rapid data exploration}
+\section{\ggtwo\ for rapid data exploration}
 
 \ggtwo\ is an \proglang{R} package by Hadley Wickham that implements Wilkinson's
 Grammar of Graphics.\footnote{Wilkinson, L. (2005). \textit{The Grammar of
@@ -54,7 +54,7 @@ on rapid exploration of data, and especially high-dimensional data. Think of
 base graphic functions as drawing with data\footnote{Examples of base graphic
 functions are \texttt{plot()}, \texttt{points()}, and \texttt{lines()}.}. With
 base graphics, you have complete control over every pixel in a plot but it can
-take a lot of time and code to produce a complex plot.
+take a lot of time and code to produce a plot.
 
 Although \ggtwo\ can be fully customized, it reaches a point of diminishing
 returns. I tend to use \ggtwo\ and base graphics for what they excel at: \ggtwo\
@@ -89,7 +89,7 @@ short for ``quick plot'' and is made to mimic the format of \texttt{plot()} from
 base \proglang{R}. \qplot\ requires less syntax for many common tasks, but has
 limitations --- it's essentially a wrapper for \ggplot. The \ggplot\ function
 itself isn't complicated and will work in all cases. I prefer to work with just
-the \ggplot\ syntax and will focus on it here --- I find it easier to master one
+the \ggplot\ syntax and will focus on it here. I find it easier to master one
 function that can do everything.
 
 \section{Basics of the grammar}
@@ -125,6 +125,7 @@ symbols! This may seem non-standard, although it has the advantage of allowing
 \ggtwo\ plots to be proper \proglang{R} objects, which can modified, inspected,
 and re-used (I provide some examples at the end).
 
+\clearpage
 \section{Geoms}
 
 \texttt{geom} refers to a geometric object. It determines the ``shape'' of the
@@ -317,7 +318,7 @@ p + facet_grid(~group2) # try another way
   \item[Horizontal error bars]\hfill \\
     Say you want to make a coefficient plot with the coefficients down the
     y-axis. You can either build the plot piece by piece with points and
-    segments, or you can use \texttt{point\_range()} and then rotate the axes
+    segments, or you can use \texttt{geom\_pointrange()} and then rotate the axes
     with \texttt{+ coord\_flip()}.
   \item[Axis limits and zooming] \hfill \\
     \ggtwo\ has two ways of adjusting the axis limits: \texttt{+ xlim(2, 5)}
@@ -348,8 +349,8 @@ gridExtra::grid.arrange(p1, p2)
 \item[\pkg{ggvis}]\hfill \\
   \pkg{ggvis} is a partial successor to \ggtwo\ and is under rapid development:
   \url{https://github.com/rstudio/ggvis}. It focuses on implementing a similar
-  grammar of graphics for web-based output. Take a look at the vignettes ---
-  start with\\ \texttt{vignette("ggvis-basics")} --- to see some examples.
+  grammar of graphics for web-based and possibly interactive output. Take a look at the vignettes ---
+  start with \texttt{vignette("ggvis-basics")} --- to see some examples.
   You'll need to install the \pkg{devtools} \proglang{R} package first.
 
 \end{description}
