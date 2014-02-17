@@ -18,13 +18,7 @@ It was written as a self-study component for the FISH554 class at the University
 
 ### Working with R Markdown
 
-You can read more about R Markdown at:
-
-<https://www.rstudio.com/ide/docs/r_markdown>
-
-and
-
-<http://www.rstudio.com/ide/docs/authoring/using_markdown>
+You can read more about R Markdown on the RStudio website [here](https://www.rstudio.com/ide/docs/r_markdown) and [here](http://www.rstudio.com/ide/docs/authoring/using_markdown).
 
 The basic idea is to add R code within the code chunks:
 
