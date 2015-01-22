@@ -7,3 +7,4 @@ figure/*.pdf
 *.html
 wingl-violin.pdf
 .Rproj.user
+index_cache/
