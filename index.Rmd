@@ -10,7 +10,8 @@ output:
 
 ```{r knitr-options, cache=FALSE, echo=FALSE}
 library("knitr")
-opts_chunk$set(cache=TRUE, message=FALSE, tidy=FALSE, fig.height=4, fig.width=6)
+opts_chunk$set(cache=TRUE, message=FALSE, tidy=FALSE, fig.height=4, fig.width=6, 
+  fig.align = "center")
 ```
 
 # An introduction to ggplot2
