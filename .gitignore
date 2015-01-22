@@ -6,3 +6,4 @@ figure/*.pdf
 *.tex
 *.html
 wingl-violin.pdf
+.Rproj.user

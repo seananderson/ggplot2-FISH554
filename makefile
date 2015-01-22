@@ -1,9 +1,12 @@
-all: notes
+all: ggplot2-exercises-answers.html \
+	index.html
 
-notes:
-	Rscript -e "knitr::knit('ggplot2-notes.Rnw')"
-	pdflatex ggplot2-notes
+index.html: index.Rmd
+	Rscript -e "rmarkdown::render('index.Rmd')"
 
-eg:
-	Rscript -e "knitr::knit('ggplot2-exercises-answers.Rmd')"
-	perl -p -i -e "s/\`\`\`r/\`\`\`S/g" ggplot2-exercises-answers.md
+ggplot2-notes.pdf: ggplot2-notes.Rnw
+	Rscript -e "rmarkdown::render('ggplot2-notes.Rnw')"
+
+ggplot2-exercises-answers.html: ggplot2-exercises-answers.Rmd
+	Rscript -e "rmarkdown::render('ggplot2-exercises-answers.Rmd', 'knitrBootstrap::bootstrap_document')"
+
