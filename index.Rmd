@@ -4,7 +4,7 @@ date: February 2015
 output:
   knitrBootstrap::bootstrap_document:
     title: "An introduction to ggplot2"
-    theme: Default
+    theme: United
     highlight: 'Tomorrow'
 ---
 
