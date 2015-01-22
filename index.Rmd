@@ -217,14 +217,14 @@ In ggplot2 parlance, small multiples are referred to as “facets”. There are 
 
 Try a scatterplot of beak height against wing length with a different panel for each taxon. Use `facet_wrap`:
 
-```{r facet1, fig.height=9, fig.width=9, bootstrap.show.code=FALSE}
+```{r facet1, bootstrap.show.code=FALSE}
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_wrap(~taxon)
 ```
 
 In some cases, it's useful to let the x or y axes have different scales for each panel. Try giving each panel a different axis here using `scales = "free"` in your call to `facet_wrap()`:
 
-```{r facet2, fig.heigh=9, fig.width=9, bootstrap.show.code=FALSE}
+```{r facet2, fig.width=10, fig.height=8, bootstrap.show.code=FALSE}
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) +
   facet_wrap(~taxon, scales = "free")
@@ -232,7 +232,7 @@ ggplot(morph, aes(wingl, beakh)) +
 
 Now try using `facet_grid` to explore the same scatterplot for each combination of sex and taxa. (Remove the `scales = "free"` code for simplicity.)
 
-```{r facet3, fig.width=16, fig.height=3, bootstrap.show.code=FALSE}
+```{r facet3, fig.width=10, fig.height=7, bootstrap.show.code=FALSE}
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_grid(sex~taxon)
 ```
