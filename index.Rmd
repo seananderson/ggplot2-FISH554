@@ -26,9 +26,10 @@ Work your way through this page. When you want to check your work, or if you get
 
 By the end you should be able to:
 
-- TODO
-- TODO
-- TODO
+- Understand the basic grammar of ggplot2 (data, geoms, aesthetics, facets).
+- Make quick exploratory plots of your multidimensional data.
+- Have an idea about how to start customizing ggplot2 figures.
+- Know wow to find help on ggplot2 when you run into problems.
 
 # ggplot2 for rapid data exploration
 
