@@ -433,7 +433,7 @@ gridExtra::grid.arrange(p1, p2)
 
 ggvis
 
-:   ggvis is a partial successor to ggplot2 and is under rapid development: https://github.com/rstudio/ggvis. It focuses on implementing a similar grammar of graphics for web-based and possibly interactive output. Install it with `devtools::install_github("rstudio/ggvis")`.
+:   [ggvis](https://github.com/rstudio/ggvis) is a partial successor to ggplot2 and is under rapid development. It focuses on implementing a similar grammar of graphics for web-based and possibly interactive output. Install it with `devtools::install_github("rstudio/ggvis")`.
 
 ## Finding help
 
