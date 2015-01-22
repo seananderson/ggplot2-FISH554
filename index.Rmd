@@ -4,7 +4,7 @@ date: February 2015
 output:
   knitrBootstrap::bootstrap_document:
     title: "An introduction to ggplot2"
-    theme: United
+    theme: Default
     highlight: 'Tomorrow'
 ---
 
@@ -16,7 +16,7 @@ opts_chunk$set(cache=TRUE, message=FALSE, tidy=FALSE, fig.height=4, fig.width=6,
 
 # An introduction to ggplot2
 
-*February 2016, by Sean C. Anderson*
+*February 2015, by Sean C. Anderson*
 
 This page will help you teach yourself how to rapidly explore data with the ggplot2 R package. It was written as a self-study component for the FISH554 class at the University of Washington.
 
