@@ -20,7 +20,7 @@ opts_chunk$set(cache=TRUE, message=FALSE, tidy=FALSE, fig.height=4, fig.width=6,
 
 This page will help you teach yourself how to rapidly explore data with the ggplot2 R package. It was written as a self-study component for the FISH554 class at the University of Washington.
 
-Work your way through this page. When you want to check your work, or if you get really stuck on an exercise, just click on the button `R source` and you'll see the R source code that created a figure.
+Work your way through this page. When you want to check your work, or if you get  stuck on an exercise, just click on the button `R source` and you'll see the R source code that created a figure.
 
 # Learning objectives
 
@@ -29,7 +29,7 @@ By the end you should be able to:
 - Understand the basic grammar of ggplot2 (data, geoms, aesthetics, facets).
 - Make quick exploratory plots of your multidimensional data.
 - Have an idea about how to start customizing ggplot2 figures.
-- Know wow to find help on ggplot2 when you run into problems.
+- Know how to find help on ggplot2 when you run into problems.
 
 # ggplot2 for rapid data exploration
 
@@ -40,7 +40,7 @@ returns. I tend to use ggplot2 and base graphics for what they excel at: ggplot2
 for rapid data exploration and base graphics for polished and fully-customized
 plots for publication.
 
-The following figure shows figure creation time vs. data dimensions and customization level for base graphics (blue) and ggplot2 (red). Left panel: It's remarkably easy to plot high-dimensional data in ggplot2 with, for example, colours, sizes, shapes, and panels. Right panel: ggplot2 excels at rapid visual exploration of data, but has some limitations in how it can be customized. Base graphics are fully customizable but can take longer to set up. I try and exploit the grey shaded areas: I use ggplot2 for data exploration and once I've decided on a small number of key plots, I'll use base graphics to make fully-customized plots if needed. Other people get good at customizing ggplot and stick with it, but since you've already learned the ways of base graphics in FISH554 I you'll benefit from the strategy in this figure:
+The following figure shows figure creation time vs. data dimensions and customization level for base graphics (blue) and ggplot2 (red). Left panel: It's remarkably easy to plot high-dimensional data in ggplot2 with, for example, colours, sizes, shapes, and panels. Right panel: ggplot2 excels at rapid visual exploration of data, but has some limitations in how it can be customized. Base graphics are fully customizable but can take longer to set up. I try and exploit the grey shaded areas: I use ggplot2 for data exploration and once I've decided on a small number of key plots, I'll use base graphics to make fully-customized plots if needed. Some people get really good at customizing ggplot and stick with it for all their plots, but since you've already learned the ways of base graphics in FISH554 I think you'll benefit from the strategy in this figure:
 
 ![](figure/gg-vs-base.png)
 
@@ -74,13 +74,13 @@ The basic format in this example is:
 
 There are also statistics, scales, and annotation options, among others. At a minimum, you must specify the data, some aesthetics, and a geom. I will elaborate on these below. Yes, ggplot2 combines elements with `+` symbols! This may seem non-standard, although it has the advantage of allowing ggplot2 plots to be proper R objects, which can modified, inspected, and re-used (I provide some examples at the end).
 
-There are two main plotting functions in ggplot2: `qplot` and `ggplot`. `qplot` is short for "quick plot" and is made to mimic the format of `plot` from base R. `qplot` requires less syntax for many common tasks, but has limitations --- it's essentially a wrapper for `ggplot`. The `ggplot` function itself isn't complicated and will work in all cases. I prefer to work with just the `ggplot` syntax and will focus on it here. I find it easier to master one function that can do everything.
+There are two main plotting functions in ggplot2: `qplot` and `ggplot`. `qplot` is short for "quick plot" and is made to mimic the format of `plot` from base R. `qplot` requires less syntax for many common tasks, but has limitations — it's essentially a wrapper for `ggplot`. The `ggplot` function itself isn't complicated and will work in all cases. I prefer to work with just the `ggplot` syntax and will focus on it here. I find it easier to master one function that can do everything.
 
 # Loading the data
 
 We're going to work with morphological data from Galapagos finches, which is available from BIRDD: Beagle Investigation Return with Darwinian Data at <http://bioquest.org/birdd/morph.php>. It is originally from Sato et al. 2000 Mol. Biol. Evol. <http://mbe.oxfordjournals.org/content/18/3/299.full>.
 
-I've saved a `.csv` version of this dataset for you. Download the data `Morph_for_Sato.csv` [here](https://raw.githubusercontent.com/seananderson/ggplot2-FISH554/master/Morph_for_Sato.csv) and put it in your R working directory.
+I've saved a `.csv` version of this dataset for you. **Download the data `Morph_for_Sato.csv` [here](https://raw.githubusercontent.com/seananderson/ggplot2-FISH554/master/Morph_for_Sato.csv) and put it in your R working directory.**
 
 Before we get started, we're going to clean the data up a bit. I've removed some columns and made the column names lower case. I've also removed all but one island. You can do that with this code:
 
@@ -119,11 +119,11 @@ str(morph)
 `geom_histogram()`  Histograms
 `geom_text()`       Text annotations
 `geom_violin()`     Violin plot (another name for a beanplot)
-`geom_map()`        Polygons from a map
+`geom_map()`        Polygons on a map
 
 Open the ggplot2 web documentation <http://docs.ggplot2.org/> and keep it open to refer back to it throughout these exercises.
 
-First, let's experiment with some geoms using the `morph` dataset. I'll start by setting up a basic scatterplot of beak height vs. wing length:
+First, let's experiment with some geoms using the `morph` dataset that you downloaded and cleaned up above. I'll start by setting up a basic scatterplot of beak height vs. wing length:
 
 ```{r geom1}
 library("ggplot2")
@@ -162,7 +162,7 @@ ggplot(mpg, aes(cty, hwy)) + geom_point(colour = "red")
 
 Let's play with mapping some of our data to aesthetics. I'll start with one example. I'm going to map the male/female value to a colour in our scatterplot of wing length and beak height. This time I'll use jittering instead of transparency to deal with overplotting:
 
-```{r aes-example, bootstrap.show.code=FALSE}
+```{r aes-example, bootstrap.show.code=TRUE}
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(aes(colour = sex),
     position = position_jitter(width = 0.3, height = 0))
@@ -170,7 +170,7 @@ ggplot(morph, aes(wingl, beakh)) +
 
 ### Your turn
 
-Explore the `morph` dataset yourself by applying some aesthetics. You can see all the available aesthetics for a give geom by looking at the documentation. Either see the website or, for example, `?geom_point`
+Explore the `morph` dataset yourself by applying some aesthetics. You can see all the available aesthetics for a give geom by looking at the documentation. Either see [the website](http://docs.ggplot2.org/current/) or, for example, `?geom_point`
 
 Some suggestions:
 
@@ -212,11 +212,13 @@ ggplot(morph, aes(wingl, beakh)) +
 
 # Facets (small multiples)
 
-In ggplot2 parlance, small multiples are referred to as “facets”. There are two kinds: `facet_wrap()` and `facet_grid()`. `facet_wrap()` plots the panels in the order of the factor levels. When it gets to the end of a column it wraps to the next column. You can specify the number of columns and rows with `nrow` and `ncol`. `facet_grid()` lays out the panels in a grid with an explicit x and y position. By default all x and y axes will be shared among panels. However, you could, for example, allow the y axes to vary with `facet_wrap(scales = free_y)` or allow all axes to vary with `facet_wrap(scales = free)`.
+In ggplot2 parlance, small multiples are referred to as "facets". There are two kinds: `facet_wrap()` and `facet_grid()`. `facet_wrap()` plots the panels in the order of the factor levels. When it gets to the end of a column it wraps to the next column. You can specify the number of columns and rows with `nrow` and `ncol`. `facet_grid()` lays out the panels in a grid with an explicit x and y position. By default all x and y axes will be shared among panels. However, you could, for example, allow the y axes to vary with `facet_wrap(scales = "free_y")` or allow all axes to vary with `facet_wrap(scales = free)`.
+
+To specify the data frame columns that are mapped to the rows and columns of facets, separate them with a tilde. For example: `+ facet_grid(row_name~column_name)`. Usually you'll only give a row or column to `facet_wrap()`, but try and see what happens if you give it both. See the help `?facet_wrap`.
 
 ### Your turn
 
-Try a scatterplot of beak height against wing length with a different panel for each taxon. Use `facet_wrap`:
+Try a scatterplot of beak height against wing length with a different panel for each taxon. Use `facet_wrap()`:
 
 ```{r facet1, bootstrap.show.code=FALSE}
 ggplot(morph, aes(wingl, beakh)) +
@@ -363,7 +365,7 @@ ggplot(morph_quant, aes(x = taxon, y = m, ymin = l, ymax = u)) +
 
 ggplot2 can add model fits to the data to help visualize patterns. For example, it can quickly add linear regression lines, GLMs, GAMs, and loess curves. Let's add loess curves to scatter plots of beak height and wing length with a panel (facets) for male and female. See `?stat_smooth`.
 
-```{r loess-example, bootstrap.show.code=FALSE}
+```{r loess-example, bootstrap.show.code=TRUE}
 ggplot(morph, aes(wingl, beakh)) +
   geom_point(alpha = 0.4) + facet_wrap(~sex) +
   stat_smooth(method = "loess")
@@ -381,7 +383,7 @@ You can add any model fit by specifying the function and the formula (see the ex
 
 With base graphics, you can work with almost any data structure you'd like, providing you can write the code to work with it. For example, you data could be in a list or a data frame. Or maybe it's scattered across multiple objects. ggplot2, on the other hand, requires you to think carefully about the data structure and then write one (possibly long) line of code. So, with base plotting you'll tend to spend lots of time writing plotting code. With ggplot2 you'll tend to spend time thinking beforehand, and then quickly write the code.
 
-ggplot2 works with “long” format data or “tidy data” with each aesthetic or facet variable in its own column (see Hadley Wickham’s [pre-print on tidy data](http://vita.had.co.nz/papers/tidy-data.pdf). So, for example, if we wanted a panel or colour for each level of a variable called `fishstock` then we’d need a column named `fishstock` with all the different values of `fishstock` in that column.
+ggplot2 works with “long” format data or “tidy data” with each aesthetic or facet variable in its own column (see Hadley Wickham’s [pre-print on tidy data](http://vita.had.co.nz/papers/tidy-data.pdf)). So, for example, if we wanted a panel or colour for each level of a variable called `fishstock` then we’d need a column named `fishstock` with all the different values of `fishstock` in that column.
 
 With the tidyr (or reshape2) and dplyr packages, you can get almost any dataset into shape for ggplot2 in a few lines. Sometimes this will take some serious thought along with pen and paper.
 
@@ -393,7 +395,7 @@ Jittering and statistics
 
 Axis labels
 
-:   `xlab(Your x-axis label)`
+:   `xlab("Your x-axis label")`
 
 Suppressing the legend
 
@@ -419,7 +421,7 @@ Axis limits and zooming
 
 Displaying and saving ggplot2 plots
 
-:   If ggplot plots are generated in a function, they will be need to be wrapped in `print()` to display. There is a convenience function `ggsave(filename.pdf)`, which will save the last plot to a PDF and guess at reasonable dimensions. You can, of course specify which plot to save and the dimensions of the PDF. You can also use all the same methods of saving ggplot plots that you can use for base graphics.
+:   If ggplot plots are generated in a function, they will be need to be wrapped in `print()` to display. There is a convenience function `ggsave("filename.pdf")`, which will save the last plot to a PDF and guess at reasonable dimensions. You can, of course specify which plot to save and the dimensions of the PDF. You can also use all the same methods of saving ggplot plots that you can use for base graphics.
 
 Combining multiple ggplot panels
 
